@@ -1,0 +1,35 @@
+{
+    "name": "khatri/mongodb-datatable",
+    "description": "This is description",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Muhammad Sikandar",
+            "email": "muhammad.sikander@innovativesolutions.ae"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "orchestra/testbench": "^5.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Khatri\\MDatatable\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Khatri\\MDatatable\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Khatri\\MDatatable\\DatatableServiceProvider"
+            ],
+            "aliases": {
+                "KhatriDatatable": "Khatri\\MDatatable\\Facades\\KhatriDatatable"
+            }
+        }
+    }
+}
