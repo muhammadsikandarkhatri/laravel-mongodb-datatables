@@ -36,3 +36,30 @@ return KhatriDatatable::collection($this->repository, $request, true)
             ])
             ->build();
 ```
+
+For selected fields and adding custom fields with them
+
+```php
+return KhatriDatatable::collection($this->customers, $request)
+                ->select([
+                    'name',
+                    'mobileDevices.deviceTypeMsg',
+                    'email',
+                    'cityId',
+                    'mobileDevices.appVersion',
+                    'approvedDate',
+                    'registerTime',
+                ])
+                ->addFields([
+                    'selection' => function($customer) {
+                        return '<input type="checkbox" class="selection" value="'. $customer->_id .'" />';
+                    },
+                    'actions' => function($customer) {
+                        return 'actions';
+                    },
+                    'credit_settings' => function($customer) {
+                        return 'credit settings';
+                    },
+                ])
+                ->build();
+```
